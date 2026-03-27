@@ -1,0 +1,32 @@
+{
+  "name": "kambaz-node-server-app",
+  "version": "1.0.0",
+  "description": "Node.js HTTP server for Kambaz application",
+  "keywords": [
+    "Node",
+    "REST",
+    "Server",
+    "HTTP",
+    "Web",
+    "Development",
+    "CS4550"
+  ],
+  "homepage": "https://github.com/reesecantu/kambaz-node-server-app#readme",
+  "bugs": {
+    "url": "https://github.com/reesecantu/kambaz-node-server-app/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reesecantu/kambaz-node-server-app.git"
+  },
+  "license": "ISC",
+  "author": "Reese Cantu",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
