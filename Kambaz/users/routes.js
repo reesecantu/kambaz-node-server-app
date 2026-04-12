@@ -1,7 +1,10 @@
 import UsersDao from "./dao.js";
 export default function UserRoutes(app) {
   const dao = UsersDao();
-  const createUser = (req, res) => {};
+  const createUser = async (req, res) => {
+    const user = await dao.createUser(req.body);
+    res.json(user);
+  };
   const deleteUser = async (req, res) => {
     const status = await dao.deleteUser(req.params.userId);
     res.json(status);
@@ -21,7 +24,6 @@ export default function UserRoutes(app) {
     const users = await dao.findAllUsers();
     res.json(users);
   };
-
   const findUserById = async (req, res) => {
     const user = await dao.findUserById(req.params.userId);
     res.json(user);
@@ -36,7 +38,6 @@ export default function UserRoutes(app) {
     }
     res.json(currentUser);
   };
-
   const signin = async (req, res) => {
     const { username, password } = req.body;
     console.log("signin body:", username, password);
