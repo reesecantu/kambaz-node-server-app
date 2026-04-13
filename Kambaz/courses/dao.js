@@ -6,7 +6,7 @@ export default function CoursesDao(db) {
   }
   async function findCoursesForEnrolledUser(userId) {
     const { enrollments } = db;
-    const courses = await model.find({}, { name: 1, description: 1 });
+    const courses = await enrollmentsDao.findCoursesForUser(userId);
     const enrolledCourses = courses.filter((course) =>
       enrollments.some(
         (enrollment) =>
@@ -20,10 +20,6 @@ export default function CoursesDao(db) {
     return model.create(newCourse);
   }
   function deleteCourse(courseId) {
-    const { enrollments } = db;
-    db.enrollments = enrollments.filter(
-      (enrollment) => enrollment.course !== courseId,
-    );
     return model.deleteOne({ _id: courseId });
   }
   function updateCourse(courseId, courseUpdates) {
